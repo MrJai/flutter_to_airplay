@@ -1,8 +1,7 @@
 name: flutter_to_airplay
 description: Flutter plugin that offers two widgets, one to play a video for given url or file path using native AVPlayer and second with an option to airplay it on available Apple devices.
 version: 1.0.0
-author: https://github.com/MrJai
-homepage: https://github.com/MrJai/flutter_to_airplay
+ghomepage: https://github.com/MrJai/flutter_to_airplay
 repository: https://github.com/MrJai/flutter_to_airplay
 
 environment:
