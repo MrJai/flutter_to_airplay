@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-// This widget returns an AirplayRoutePicker button from native code,
-// it can be added as a button or as an app bar icon, just like any widget.
+/// This widget returns an AirplayRoutePicker button from native code,
+/// it can be added as a button or as an app bar icon, just like any widget.
 class AirPlayRoutePickerView extends StatelessWidget {
   const AirPlayRoutePickerView({
     Key key,
@@ -12,24 +12,24 @@ class AirPlayRoutePickerView extends StatelessWidget {
     this.backgroundColor,
   }) : super(key: key);
 
-  // All of the attributes of this widget will effect the appearance of the
-  // button that will assist integration of this button into any theme.
+  /// All of the attributes of this widget will effect the appearance of the
+  /// button that will assist integration of this button into any theme.
 
-  // Tint color can be provided as a Flutter color, it will update the
-  // tint color of the button in normal state.
+  /// Tint color can be provided as a Flutter color, it will update the
+  /// tint color of the button in normal state.
   final Color tintColor;
 
-  // Active Tint color can be provided as a flutter color, it will update
-  // the active tint color of the button when it is tapped.
+  /// Active Tint color can be provided as a flutter color, it will update
+  /// the active tint color of the button when it is tapped.
   final Color activeTintColor;
 
-  // Background color can be provided as a flutter color, it will update
-  // the background color of the button.
+  /// Background color can be provided as a flutter color, it will update
+  /// the background color of the button.
   final Color backgroundColor;
 
-  // This function checks the presence of all the option attribute,
-  // and only packs the ones available. That helps the error handling
-  // in the native code.
+  /// This function checks the presence of all the option attribute,
+  /// and only packs the ones available. That helps the error handling
+  /// in the native code.
   Map getCreateParams() {
     Map creationParams = {};
 
@@ -67,6 +67,9 @@ class AirPlayRoutePickerView extends StatelessWidget {
     return creationParams;
   }
 
+  /// For now this widget only supports for iOS, so build method will check
+  /// if the platform is iOS it will return the AirPlayRoutePicker as expected,
+  /// otherwise it will return a Centered Text Widget with proper message.
   @override
   Widget build(BuildContext context) {
     // This widget supports only iOS for now, so here we are checking this explicitly.

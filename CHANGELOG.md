@@ -12,3 +12,7 @@ Both of these widgets can be used in the same app or separately.
 
 - Update the formatting as per pub.dev suggestions.
 - Add proper comments to the API.
+
+## 1.0.2
+
+- Add Doc comments those can be used by DartDoc to generate beautiful documentation pages.
