@@ -50,7 +50,16 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Text('Flutter 2 Airplay'),
+              Text(
+                _platformVersion,
+                style: TextStyle(fontSize: 12.0),
+              ),
+            ],
+          ),
           actions: [
             Container(
               width: 44.0,
