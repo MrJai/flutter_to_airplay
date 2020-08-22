@@ -40,7 +40,7 @@ child: FlutterAVPlayerView(
             ),
 ```
 
-### Screenshots
+## Screenshots
 
 Video iPhone | Airplay iPhone | Video iPad | Airplay iPad
 ------------ | -------------|--------------|--------------
@@ -48,10 +48,11 @@ Video iPhone | Airplay iPhone | Video iPad | Airplay iPad
 
 ## TODO: 
 
-[x] Allow videos add to the Flutter project.
+- [x] Allow videos add to the Flutter project.
+- [ ] Allow videos from more sources, Youtube, etc.
 
-[ ] Allow videos from famous online sources.
 
+## Disclaimers:
 
 - *Please suggest if you want a feature added to this utility*
 - *Please feel free to add any issues or open PRs, I will be actively looking to add to these utilities.*
