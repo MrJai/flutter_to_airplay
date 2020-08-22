@@ -21,12 +21,22 @@ AirPlayRoutePickerView(
 
 ### 2- FlutterAVPlayerView
 
-For now it takes only `urlString` and play a video from the network.
+For now it supports either local file added to flutter project, or a video url.
+
+**To play a network video for given url:**
 
 ```
 FlutterAVPlayerView(
               urlString:
                   'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+            ),
+```
+
+**To play a local video added to the flutter project:**
+
+```
+child: FlutterAVPlayerView(
+              filePath: 'assets/videos/butterfly.mp4',
             ),
 ```
 
@@ -38,8 +48,13 @@ Video iPhone | Airplay iPhone | Video iPad | Airplay iPad
 
 ## TODO: 
 
-- [ ] Allow videos from different sources.
+[x] Allow videos add to the Flutter project.
 
+[ ] Allow videos from famous online sources.
+
+
+- *Please suggest if you want a feature added to this utility*
+- *Please feel free to add any issues or open PRs, I will be actively looking to add to these utilities.*
 
 # Credit: Inspired by Package 
 ## [FlutterAirplayPlugin](https://github.com/nksteven/FlutterAirplayPlugin)

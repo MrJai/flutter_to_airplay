@@ -9,7 +9,6 @@ import Foundation
 import AVKit
 import MediaPlayer
 import Flutter
-//import MUXSDKStats
 
 class FlutterAVPlayer: NSObject, FlutterPlatformView {
     private var _flutterAVPlayerViewController : AVPlayerViewController;
@@ -20,15 +19,19 @@ class FlutterAVPlayer: NSObject, FlutterPlatformView {
           binaryMessenger: FlutterBinaryMessenger) {
         _flutterAVPlayerViewController = AVPlayerViewController()
         _flutterAVPlayerViewController.viewDidLoad()
-        let urlString = arguments["url"] as! String
-        let item = AVPlayerItem(url: URL(string: urlString)!)
-        _flutterAVPlayerViewController.player = AVPlayer(playerItem: item)
-//        let playerData = MUXSDKCustomerPlayerData(environmentKey: "ENV_KEY");
-//        playerData?.playerName = "AVPlayer"
-//        let videoData = MUXSDKCustomerVideoData();
-//        videoData.videoIsLive = false;
-//        videoData.videoTitle = "Title1"
-//        _ = MUXSDKStats.monitorAVPlayerViewController(self, withPlayerName: playName, playerData: playerData!, videoData: videoData);
+        if let urlString = arguments["url"] {
+            let item = AVPlayerItem(url: URL(string: urlString as! String)!)
+            _flutterAVPlayerViewController.player = AVPlayer(playerItem: item)
+        } else {
+            let filePath = arguments["file"] as! String
+            let appDelegate = UIApplication.shared.delegate as! FlutterAppDelegate
+            let vc = appDelegate.window.rootViewController as! FlutterViewController
+            let lookUpKey = vc.lookupKey(forAsset: filePath)
+            if let path = Bundle.main.path(forResource: lookUpKey, ofType: nil) {
+                let item = AVPlayerItem(url: URL(fileURLWithPath: path))
+                _flutterAVPlayerViewController.player = AVPlayer(playerItem: item)
+            }
+        }
         _flutterAVPlayerViewController.player!.play()
     }
     func view() -> UIView {
