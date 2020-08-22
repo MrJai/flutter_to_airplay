@@ -32,7 +32,7 @@ FlutterAVPlayerView(
 
 ### Screenshots
 
-Video iPhone | Video iPad | Airplay iPhone | Airplay iPad
+Video iPhone | Airplay iPhone | Video iPad | Airplay iPad
 ------------ | -------------|--------------|--------------
 ![iPhoneVideo_Butterfly](https://github.com/MrJai/flutter_to_airplay/blob/master/example/screenshots/iPhoneVideo_Butterfly.png) | ![iPadVideo_Butterfly](https://github.com/MrJai/flutter_to_airplay/blob/master/example/screenshots/iPhoneAirplayView.png) | ![AirPlayiPhone](https://github.com/MrJai/flutter_to_airplay/blob/master/example/screenshots/iPadVideo_Butterfly.png) | ![AirPlayiPad](https://github.com/MrJai/flutter_to_airplay/blob/master/example/screenshots/iPadAirplayView.png)
 
