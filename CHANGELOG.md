@@ -7,3 +7,8 @@ This version includes two widgets
 **2- AirPlayRoutePickerView:** with an option to airplay it on available Apple devices.
 
 Both of these widgets can be used in the same app or separately.
+
+## 1.0.1
+
+- Update the formatting as per pub.dev suggestions.
+- Add proper comments to the API.
