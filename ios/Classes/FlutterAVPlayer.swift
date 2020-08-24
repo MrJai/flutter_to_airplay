@@ -22,11 +22,10 @@ class FlutterAVPlayer: NSObject, FlutterPlatformView {
         if let urlString = arguments["url"] {
             let item = AVPlayerItem(url: URL(string: urlString as! String)!)
             _flutterAVPlayerViewController.player = AVPlayer(playerItem: item)
-        } else {
-            let filePath = arguments["file"] as! String
+        } else if let filePath = arguments["file"] {
             let appDelegate = UIApplication.shared.delegate as! FlutterAppDelegate
             let vc = appDelegate.window.rootViewController as! FlutterViewController
-            let lookUpKey = vc.lookupKey(forAsset: filePath)
+            let lookUpKey = vc.lookupKey(forAsset: filePath as! String)
             if let path = Bundle.main.path(forResource: lookUpKey, ofType: nil) {
                 let item = AVPlayerItem(url: URL(fileURLWithPath: path))
                 _flutterAVPlayerViewController.player = AVPlayer(playerItem: item)
