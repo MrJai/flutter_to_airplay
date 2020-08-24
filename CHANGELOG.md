@@ -16,3 +16,7 @@ Both of these widgets can be used in the same app or separately.
 ## 1.0.2
 
 - Add Doc comments those can be used by DartDoc to generate beautiful documentation pages.
+
+## 1.0.3
+
+- Fix a crash in AVPlayer.
