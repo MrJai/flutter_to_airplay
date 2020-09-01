@@ -31,7 +31,9 @@ class AirPlayRoutePickerView extends StatelessWidget {
   /// and only packs the ones available. That helps the error handling
   /// in the native code.
   Map getCreateParams() {
-    Map creationParams = {};
+    Map creationParams = {
+      'class': 'AirplayRoutePicker',
+    };
 
     // if tintColor is not provided, do not process this.
     if (tintColor != null) {
