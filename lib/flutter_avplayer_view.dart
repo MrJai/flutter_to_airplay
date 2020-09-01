@@ -25,15 +25,15 @@ class FlutterAVPlayerView extends StatelessWidget {
   /// It is preferred that only one of urlString or filePath is used at a time,
   /// if both are provided, application will prioritise urlString.
   Map getCreateParams() {
+    Map params = {
+      'class': 'FlutterAVPlayerView',
+    };
     if (urlString != null && urlString.length > 0) {
-      return {
-        'url': urlString,
-      };
+      params['url'] = urlString;
     } else {
-      return {
-        'file': filePath,
-      };
+      params['file'] = filePath;
     }
+    return params;
   }
 
   @override
