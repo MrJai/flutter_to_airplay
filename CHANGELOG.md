@@ -24,3 +24,7 @@ Both of these widgets can be used in the same app or separately.
 ## 1.0.4
 
 - Fix a crash in AirPlayRoutePickerView when user opens it for the second time.
+
+## 2.0.0
+
+- Migrate to null safety.
