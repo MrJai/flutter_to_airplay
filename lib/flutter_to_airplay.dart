@@ -1,3 +1,6 @@
+export 'airplay_route_picker_view.dart';
+export 'flutter_avplayer_view.dart';
+
 import 'dart:async';
 
 import 'package:flutter/services.dart';

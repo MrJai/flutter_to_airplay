@@ -5,6 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_to_airplay/flutter_to_airplay.dart';
 import 'package:flutter_to_airplay/airplay_route_picker_view.dart';
 import 'package:flutter_to_airplay/flutter_avplayer_view.dart';
+import 'package:flutter_to_airplay_example/customIcon/custom_icon_view.dart';
+import 'package:flutter_to_airplay_example/pickFromFile/pick_from_file_view.dart';
+import 'package:flutter_to_airplay_example/pickFromURL/pick_from_url_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -60,24 +63,55 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
           ),
-          actions: [
-            Container(
-              width: 44.0,
-              height: 44.0,
-              child: AirPlayRoutePickerView(
-                tintColor: Colors.white,
-                activeTintColor: Colors.white,
-                backgroundColor: Colors.transparent,
-              ),
-            ),
-          ],
         ),
         body: SafeArea(
-          child: Center(
-            child: FlutterAVPlayerView(
-              // filePath: 'assets/videos/butterfly.mp4',
-              urlString:
-                  'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
+          child: Container(
+            // height: MediaQuery.of(context).size.height,
+            // width: MediaQuery.of(context).size.width,
+            child: ListView.builder(
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                switch (index) {
+                  case 0:
+                    return ListTile(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PickFromFileView(),
+                        ),
+                      ),
+                      title: Text('Video from File'),
+                      trailing: Icon(Icons.chevron_right),
+                    );
+                    break;
+                  case 1:
+                    return ListTile(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PickFromURLView(),
+                        ),
+                      ),
+                      title: Text('Video from URL'),
+                      trailing: Icon(Icons.chevron_right),
+                    );
+                    break;
+                  case 2:
+                    return ListTile(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CustomIconView(),
+                        ),
+                      ),
+                      title: Text('Custom Icon'),
+                      trailing: Icon(Icons.chevron_right),
+                    );
+                    break;
+                  default:
+                    return null;
+                }
+              },
             ),
           ),
         ),

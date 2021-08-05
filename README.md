@@ -2,6 +2,11 @@
 
 Flutter plugin that offers two widgets, one to play a video for given url or file path using native AVPlayer and second with an option to airplay it on available Apple devices.
 
+## Sponsor/Support
+
+#### If you like my work, and want to support me so that I can invest more time in improving it, please consider buying me a coffee.
+<br><a href="https://www.buymeacoffee.com/junaidR" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 ## Getting Started
 
 This plugin provides two widgets,
