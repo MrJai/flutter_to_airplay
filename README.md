@@ -5,7 +5,9 @@ Flutter plugin that offers two widgets, one to play a video for given url or fil
 ## Sponsor/Support
 
 #### If you like my work, and want to support me so that I can invest more time in improving it, please consider buying me a coffee.
-<br><a href="https://www.buymeacoffee.com/junaidR" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+<a href="https://www.buymeacoffee.com/junaidR" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" width="150" ></a>
+<br>
 
 ## Getting Started
 

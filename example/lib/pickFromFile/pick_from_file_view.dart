@@ -61,14 +61,10 @@ class _PickFromFileViewState extends State<PickFromFileView> {
             ),
           ),
           actions: [
-            Container(
-              width: 44.0,
-              height: 44.0,
-              child: AirPlayRoutePickerView(
-                tintColor: Colors.white,
-                activeTintColor: Colors.white,
-                backgroundColor: Colors.transparent,
-              ),
+            AirPlayRoutePickerView(
+              tintColor: Colors.white,
+              activeTintColor: Colors.white,
+              backgroundColor: Colors.transparent,
             ),
           ],
         ),

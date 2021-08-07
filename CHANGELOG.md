@@ -1,3 +1,5 @@
+## 2.0.2
+- fixed a use case where airplay_route_picker_view was causing a crash if not wrapped in a widget with size. now the widget will have predefined 44 x 44 size, but user can customise it to their use.
 ## 2.0.1
 
 - Add some examples for frequently asked cases.
