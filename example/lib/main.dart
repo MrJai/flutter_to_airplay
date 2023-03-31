@@ -3,8 +3,6 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_to_airplay/flutter_to_airplay.dart';
-import 'package:flutter_to_airplay/airplay_route_picker_view.dart';
-import 'package:flutter_to_airplay/flutter_avplayer_view.dart';
 import 'package:flutter_to_airplay_example/customIcon/custom_icon_view.dart';
 import 'package:flutter_to_airplay_example/pickFromFile/pick_from_file_view.dart';
 import 'package:flutter_to_airplay_example/pickFromURL/pick_from_url_view.dart';
