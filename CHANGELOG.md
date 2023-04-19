@@ -1,3 +1,5 @@
+## 2.0.4
+
 - feat: Widget AirPlayRoutePickerView accept onShowPickerView and onClosePickerView callbacks to detect picker states
 - feat: Widget AirPlayIconButton show AirPlayRoutePickerView. This button uses your app theme and IconButton style
 
