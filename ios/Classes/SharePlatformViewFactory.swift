@@ -9,18 +9,18 @@ import Foundation
 import Flutter
 
 class SharePlatformViewFactory: NSObject, FlutterPlatformViewFactory {
-    var _messenger : FlutterBinaryMessenger
-    
+    let _messenger : FlutterBinaryMessenger
+
     init(messenger: FlutterBinaryMessenger & NSObjectProtocol) {
         _messenger = messenger
     }
-    
+
     func create(withFrame frame: CGRect, viewIdentifier viewId: Int64, arguments args: Any?) -> FlutterPlatformView {
         let argumens = args as! Dictionary<String, Any>;
         if let viewClass = argumens["class"] {
             let vc = viewClass as! String
             if vc == "AirplayRoutePicker" {
-                let pickerView = FlutterRoutePickerView(frame: frame, viewIdentifier: viewId, arguments: argumens, binaryMessenger: _messenger)
+                let pickerView = FlutterRoutePickerView(messenger: _messenger, viewId: viewId, arguments: argumens)
                 return pickerView
             }
             else if vc == "FlutterAVPlayerView" {
@@ -28,6 +28,7 @@ class SharePlatformViewFactory: NSObject, FlutterPlatformViewFactory {
                 return pickerView
             }
         }
+        
         return UIView() as! FlutterPlatformView
     }
     
