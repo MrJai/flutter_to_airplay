@@ -49,8 +49,8 @@ class FlutterAVPlayer: NSObject, FlutterPlatformView {
 class CustomAVPlayerViewController: AVPlayerViewController {
   var activityIndicator: UIActivityIndicatorView?
 
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
+  override func viewDidLoad() {
+    super.viewDidLoad()
     if player != nil {
       player!.addObserver(
         self, forKeyPath: "timeControlStatus", options: [.old, .new], context: nil)
