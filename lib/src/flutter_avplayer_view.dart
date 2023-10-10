@@ -9,15 +9,19 @@ class FlutterAVPlayerView extends StatelessWidget {
   const FlutterAVPlayerView({
     Key? key,
     this.urlString,
+    this.assetPath,
     this.filePath,
-  })  : assert(urlString != null || filePath != null),
+  })  : assert(urlString != null || filePath != null || assetPath != null),
         super(key: key);
 
   /// URL string for the video file, if the file is to be played from the network.
   final String? urlString;
 
-  /// Asset name/path for the video file that needs to be played.
+  /// File path for the video file, if the file is to be played from the device.
   final String? filePath;
+
+  /// Asset name/path for the video file that needs to be played.
+  final String? assetPath;
 
   /// This function packs the available parameters to be sent to native code.
   /// It will check for the URL first, if it is available, then it will be used,
@@ -30,6 +34,8 @@ class FlutterAVPlayerView extends StatelessWidget {
     };
     if (urlString != null && urlString!.length > 0) {
       params['url'] = urlString;
+    } else if (assetPath != null && assetPath!.length > 0) {
+      params['asset'] = assetPath;
     } else {
       params['file'] = filePath;
     }
