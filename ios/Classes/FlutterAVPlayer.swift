@@ -12,7 +12,8 @@ import MediaPlayer
 import UIKit
 
 class FlutterAVPlayer: NSObject, FlutterPlatformView {
-  private var _flutterAVPlayerViewController: AVPlayerViewController
+  private var _flutterAVPlayerViewController: CustomAVPlayerViewController
+  private var _methodChannel: FlutterMethodChannel
 
   init(
     frame: CGRect,
@@ -20,7 +21,12 @@ class FlutterAVPlayer: NSObject, FlutterPlatformView {
     arguments: [String: Any],
     binaryMessenger: FlutterBinaryMessenger
   ) {
+    _methodChannel = FlutterMethodChannel(
+      name: "plugins.mcrovero/flutter_avplayer_view_\(viewIdentifier)",
+      binaryMessenger: binaryMessenger
+    )
     _flutterAVPlayerViewController = CustomAVPlayerViewController()
+    _flutterAVPlayerViewController.channel = _methodChannel
     _flutterAVPlayerViewController.viewDidLoad()
 
     if let urlString = arguments["url"] {
@@ -39,6 +45,8 @@ class FlutterAVPlayer: NSObject, FlutterPlatformView {
       _flutterAVPlayerViewController.player = AVPlayer(playerItem: item)
     }
     _flutterAVPlayerViewController.player!.play()
+
+    super.init()
   }
   func view() -> UIView {
     return _flutterAVPlayerViewController.view
@@ -51,6 +59,7 @@ class FlutterAVPlayer: NSObject, FlutterPlatformView {
 
 class CustomAVPlayerViewController: AVPlayerViewController {
   var activityIndicator: UIActivityIndicatorView?
+  var channel: FlutterMethodChannel?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -78,7 +87,11 @@ class CustomAVPlayerViewController: AVPlayerViewController {
 
         if newStatus != oldStatus {
           if newStatus == .playing || newStatus == .paused {
-            print("stopAnimating")
+            if(newStatus == .playing) {
+              self.channel?.invokeMethod("onStatusChanged", arguments: ["status": "playing"])
+            } else {
+              self.channel?.invokeMethod("onStatusChanged", arguments: ["status": "paused"])
+            }
             activityIndicator?.stopAnimating()
           }
         }
