@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_to_airplay_example/customIcon/custom_icon_view.dart';
+import 'package:flutter_to_airplay_example/pickFromAsset/pick_from_asset_view.dart';
 import 'package:flutter_to_airplay_example/pickFromFile/pick_from_file_view.dart';
 import 'package:flutter_to_airplay_example/pickFromURL/pick_from_url_view.dart';
 
@@ -18,13 +19,22 @@ class MyApp extends StatelessWidget {
         ),
         body: SafeArea(
           child: Container(
-            // height: MediaQuery.of(context).size.height,
-            // width: MediaQuery.of(context).size.width,
             child: ListView.builder(
-              itemCount: 3,
+              itemCount: 4,
               itemBuilder: (context, index) {
                 switch (index) {
                   case 0:
+                    return ListTile(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PickFromAssetView(),
+                        ),
+                      ),
+                      title: Text('Video from Asset'),
+                      trailing: Icon(Icons.chevron_right),
+                    );
+                  case 1:
                     return ListTile(
                       onTap: () => Navigator.push(
                         context,
@@ -35,8 +45,7 @@ class MyApp extends StatelessWidget {
                       title: Text('Video from File'),
                       trailing: Icon(Icons.chevron_right),
                     );
-                    break;
-                  case 1:
+                  case 2:
                     return ListTile(
                       onTap: () => Navigator.push(
                         context,
@@ -47,8 +56,7 @@ class MyApp extends StatelessWidget {
                       title: Text('Video from URL'),
                       trailing: Icon(Icons.chevron_right),
                     );
-                    break;
-                  case 2:
+                  case 3:
                     return ListTile(
                       onTap: () => Navigator.push(
                         context,
@@ -59,7 +67,6 @@ class MyApp extends StatelessWidget {
                       title: Text('Custom Icon'),
                       trailing: Icon(Icons.chevron_right),
                     );
-                    break;
                   default:
                     return null;
                 }

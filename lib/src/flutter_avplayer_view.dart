@@ -6,17 +6,18 @@ import 'package:flutter/services.dart';
 /// and control its width and height.
 
 class FlutterAVPlayerView extends StatelessWidget {
-  const FlutterAVPlayerView({
-    Key? key,
-    this.urlString,
-    this.filePath,
-  })  : assert(urlString != null || filePath != null),
+  const FlutterAVPlayerView(
+      {Key? key, this.urlString, this.filePath, this.assetPath})
+      : assert(urlString != null || filePath != null || assetPath != null),
         super(key: key);
 
   /// URL string for the video file, if the file is to be played from the network.
   final String? urlString;
 
   /// Asset name/path for the video file that needs to be played.
+  final String? assetPath;
+
+  /// File name/path for the video file that needs to be played from the Temporary or Document directory.
   final String? filePath;
 
   /// This function packs the available parameters to be sent to native code.
@@ -30,8 +31,10 @@ class FlutterAVPlayerView extends StatelessWidget {
     };
     if (urlString != null && urlString!.length > 0) {
       params['url'] = urlString;
-    } else {
+    } else if (filePath != null && filePath!.length > 0) {
       params['file'] = filePath;
+    } else {
+      params['asset'] = assetPath;
     }
     return params;
   }
