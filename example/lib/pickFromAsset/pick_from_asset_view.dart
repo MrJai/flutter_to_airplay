@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_to_airplay/flutter_to_airplay.dart';
 
-class CustomIconView extends StatelessWidget {
+class PickFromAssetView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,23 +18,7 @@ class CustomIconView extends StatelessWidget {
             ),
           ),
           actions: [
-            Container(
-              width: 44.0,
-              height: 44.0,
-              child: Stack(
-                children: [
-                  IconButton(
-                    onPressed: null,
-                    icon: Icon(Icons.play_arrow),
-                  ),
-                  AirPlayRoutePickerView(
-                    tintColor: Colors.transparent,
-                    activeTintColor: Colors.transparent,
-                    backgroundColor: Colors.transparent,
-                  ),
-                ],
-              ),
-            ),
+            AirPlayIconButton(),
           ],
         ),
         body: SafeArea(

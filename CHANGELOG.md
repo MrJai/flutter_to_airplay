@@ -1,3 +1,9 @@
+## 2.1.0
+
+_Breaking Changes_:
+
+`filePath` in `FlutterAVPlayerView` is used for files stored in the TemporaryDirectory and the new `assetPath` is used for assets stored in the `rootBundle` of your application.
+
 ## 2.0.4
 
 - feat: Widget AirPlayRoutePickerView accept onShowPickerView and onClosePickerView callbacks to detect picker states
