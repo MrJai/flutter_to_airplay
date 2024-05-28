@@ -1,3 +1,7 @@
+## 2.0.5
+
+- Fixed issue#29 - Offline downloaded file not playing
+
 ## 2.0.4
 
 - feat: Widget AirPlayRoutePickerView accept onShowPickerView and onClosePickerView callbacks to detect picker states
