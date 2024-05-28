@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
                       title: Text('Video from File'),
                       trailing: Icon(Icons.chevron_right),
                     );
-                    break;
                   case 1:
                     return ListTile(
                       onTap: () => Navigator.push(
@@ -47,7 +46,6 @@ class MyApp extends StatelessWidget {
                       title: Text('Video from URL'),
                       trailing: Icon(Icons.chevron_right),
                     );
-                    break;
                   case 2:
                     return ListTile(
                       onTap: () => Navigator.push(
@@ -59,7 +57,6 @@ class MyApp extends StatelessWidget {
                       title: Text('Custom Icon'),
                       trailing: Icon(Icons.chevron_right),
                     );
-                    break;
                   default:
                     return null;
                 }
