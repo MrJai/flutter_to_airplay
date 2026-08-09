@@ -1,3 +1,7 @@
+## Unreleased
+
+- feat: macOS support for `AirPlayRoutePickerView` and `AirPlayIconButton`, backed by the native AppKit `AVRoutePickerView`. The widgets now render the native picker on both iOS and macOS.
+
 ## 2.1.0
 
 _Breaking Changes_:
