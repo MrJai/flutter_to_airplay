@@ -5,20 +5,19 @@
 Pod::Spec.new do |s|
   s.name             = 'flutter_to_airplay'
   s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
+  s.summary          = 'Flutter plugin to play video via native AVPlayer and AirPlay it to Apple devices.'
   s.description      = <<-DESC
-A new flutter plugin project.
+Flutter plugin that offers two widgets, one to play a video for a given url or file path using native AVPlayer and a second with an option to AirPlay it on available Apple devices.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/MrJai/flutter_to_airplay'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Junaid Rehmat' => 'junaid.rehmat.rana@gmail.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'flutter_to_airplay/Sources/flutter_to_airplay/**/*.swift'
   s.dependency 'Flutter'
-  s.dependency 'Mux-Stats-AVPlayer'
-  s.platform = :ios, '8.0'
+  s.platform = :ios, '12.0'
 
-  # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
+  # Flutter.framework does not contain a i386 slice.
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
 end
