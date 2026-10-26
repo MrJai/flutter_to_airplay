@@ -1,5 +1,6 @@
 ## 2.2.0
 
+- Added macOS support for `AirPlayRoutePickerView` and `AirPlayIconButton`, backed by the native AppKit `AVRoutePickerView`. The widgets now render the native picker on both iOS and macOS.
 - Added Swift Package Manager support for the iOS plugin, so apps no longer need CocoaPods just to use `flutter_to_airplay`. CocoaPods (via the podspec) is still supported for apps that haven't migrated to SwiftPM yet.
 - Removed the unused `Mux-Stats-AVPlayer` CocoaPods dependency from the podspec.
 - Upgraded example app dependencies (`cupertino_icons`, `path_provider`) and modernized the example iOS Runner project.

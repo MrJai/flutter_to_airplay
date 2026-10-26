@@ -115,30 +115,44 @@ class _AirPlayRoutePickerViewState extends State<AirPlayRoutePickerView> {
     _methodChannel = null;
   }
 
-  /// For now this widget only supports for iOS, so build method will check
-  /// if the platform is iOS it will return the AirPlayRoutePicker as expected,
-  /// otherwise it will return a Centered Text Widget with proper message.
+  /// This widget supports iOS and macOS, both backed by the native
+  /// AVRoutePickerView. On iOS the view is embedded with a [UiKitView] and on
+  /// macOS with an [AppKitView]; both share the same `airplay_route_picker_view`
+  /// view type and `flutter_to_airplay#<id>` method channel. On any other
+  /// platform it returns a centered text widget with a message.
   @override
   Widget build(BuildContext context) {
-    // This widget supports only iOS for now, so here we are checking this explicitly.
+    // This is the identifier that helps distinguish different views in the native code.
+    const viewType = 'airplay_route_picker_view';
+
     if (defaultTargetPlatform == TargetPlatform.iOS) {
       return SizedBox(
         width: widget.width,
         height: widget.height,
         child: UiKitView(
-          // This is the identifier that helps distinguish different views in the native code.
-          viewType: 'airplay_route_picker_view',
+          viewType: viewType,
           // messenger to decode message between flutter and native.
           creationParamsCodec: const StandardMessageCodec(),
-          // parameters to load the video in native code.
+          // parameters to load the picker in native code.
+          creationParams: widget._createParams(),
+          onPlatformViewCreated: _onPlatformViewCreated,
+        ),
+      );
+    } else if (defaultTargetPlatform == TargetPlatform.macOS) {
+      return SizedBox(
+        width: widget.width,
+        height: widget.height,
+        child: AppKitView(
+          viewType: viewType,
+          creationParamsCodec: const StandardMessageCodec(),
           creationParams: widget._createParams(),
           onPlatformViewCreated: _onPlatformViewCreated,
         ),
       );
     } else {
-      // if the platform is not iOS, it should return a centered text widget to give the message.
+      // if the platform is unsupported, return a centered text widget with a message.
       return Center(
-        child: Text('Only iOS is supported at this moment.'),
+        child: Text('Only iOS and macOS are supported at this moment.'),
       );
     }
   }
