@@ -9,6 +9,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,60 +26,58 @@ class MyApp extends StatelessWidget {
           ),
         ),
         body: SafeArea(
-          child: Container(
-            child: ListView.builder(
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                switch (index) {
-                  case 0:
-                    return ListTile(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PickFromAssetView(),
-                        ),
+          child: ListView.builder(
+            itemCount: 4,
+            itemBuilder: (context, index) {
+              switch (index) {
+                case 0:
+                  return ListTile(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PickFromAssetView(),
                       ),
-                      title: Text('Video from Asset'),
-                      trailing: Icon(Icons.chevron_right),
-                    );
-                  case 1:
-                    return ListTile(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PickFromFileView(),
-                        ),
+                    ),
+                    title: Text('Video from Asset'),
+                    trailing: Icon(Icons.chevron_right),
+                  );
+                case 1:
+                  return ListTile(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PickFromFileView(),
                       ),
-                      title: Text('Video from File'),
-                      trailing: Icon(Icons.chevron_right),
-                    );
-                  case 2:
-                    return ListTile(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PickFromURLView(),
-                        ),
+                    ),
+                    title: Text('Video from File'),
+                    trailing: Icon(Icons.chevron_right),
+                  );
+                case 2:
+                  return ListTile(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PickFromURLView(),
                       ),
-                      title: Text('Video from URL'),
-                      trailing: Icon(Icons.chevron_right),
-                    );
-                  case 3:
-                    return ListTile(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CustomIconView(),
-                        ),
+                    ),
+                    title: Text('Video from URL'),
+                    trailing: Icon(Icons.chevron_right),
+                  );
+                case 3:
+                  return ListTile(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CustomIconView(),
                       ),
-                      title: Text('Custom Icon'),
-                      trailing: Icon(Icons.chevron_right),
-                    );
-                  default:
-                    return null;
-                }
-              },
-            ),
+                    ),
+                    title: Text('Custom Icon'),
+                    trailing: Icon(Icons.chevron_right),
+                  );
+                default:
+                  return null;
+              }
+            },
           ),
         ),
       ),

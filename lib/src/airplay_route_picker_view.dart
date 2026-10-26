@@ -63,7 +63,8 @@ class AirPlayRoutePickerView extends StatefulWidget {
       'prioritizesVideoDevices': prioritizesVideoDevices,
 
       // if tintColor is not provided, do not process this.
-      if (tintColor != null) 'tintColor': FlutterToAirplay.colorToParams(tintColor!),
+      if (tintColor != null)
+        'tintColor': FlutterToAirplay.colorToParams(tintColor!),
 
       // if activeTintColor is not provided, do not process this.
       if (activeTintColor != null)

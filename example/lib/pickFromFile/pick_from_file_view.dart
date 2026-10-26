@@ -7,6 +7,8 @@ import 'package:flutter_to_airplay_example/Utils/ui_utils.dart';
 import 'package:path_provider/path_provider.dart';
 
 class PickFromFileView extends StatefulWidget {
+  const PickFromFileView({super.key});
+
   @override
   State<PickFromFileView> createState() => _PickFromFileViewState();
 }

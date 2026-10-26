@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_to_airplay/flutter_to_airplay.dart';
 
 class CustomIconView extends StatelessWidget {
+  const CustomIconView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +26,7 @@ class CustomIconView extends StatelessWidget {
             ),
           ),
           actions: [
-            Container(
+            SizedBox(
               width: 44.0,
               height: 44.0,
               child: Stack(

@@ -5,25 +5,22 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter_to_airplay_example/main.dart';
 
 void main() {
-  testWidgets('Verify Platform version', (WidgetTester tester) async {
+  testWidgets('Shows the app bar title and example list', (
+    WidgetTester tester,
+  ) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
-    // Verify that platform version is retrieved.
-    expect(
-      find.byWidgetPredicate(
-        (Widget widget) =>
-            widget is Text &&
-            widget.data != null &&
-            widget.data!.startsWith('Running on:'),
-      ),
-      findsOneWidget,
-    );
+    // Verify that the app bar title and the example entries are shown.
+    expect(find.text('Flutter 2 Airplay'), findsOneWidget);
+    expect(find.text('Video from Asset'), findsOneWidget);
+    expect(find.text('Video from File'), findsOneWidget);
+    expect(find.text('Video from URL'), findsOneWidget);
+    expect(find.text('Custom Icon'), findsOneWidget);
   });
 }

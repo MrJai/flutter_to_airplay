@@ -16,11 +16,15 @@ jobs:
           channel: stable
       - name: Install dependencies
         run: flutter pub get
+      - name: Install example dependencies
+        working-directory: example
+        run: flutter pub get
       - name: Verify formatting
         run: dart format --output=none --set-exit-if-changed .
       - name: Analyze
         run: flutter analyze
       - name: Run tests
+        working-directory: example
         run: flutter test
 
   build-example:

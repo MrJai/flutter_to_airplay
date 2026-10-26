@@ -3,6 +3,8 @@ import 'package:flutter_to_airplay/flutter_to_airplay.dart';
 import 'package:flutter_to_airplay_example/Utils/ui_utils.dart';
 
 class PickFromURLView extends StatelessWidget {
+  const PickFromURLView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
