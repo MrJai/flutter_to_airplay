@@ -1,7 +1,7 @@
 import Flutter
 import UIKit
 
-public class SwiftFlutterToAirplayPlugin: NSObject, FlutterPlugin {
+public class FlutterToAirplayPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
     registrar.register(
         SharePlatformViewFactory(messenger: registrar.messenger()),
