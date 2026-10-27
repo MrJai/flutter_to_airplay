@@ -30,7 +30,14 @@ class FlutterAVPlayer: NSObject, FlutterPlatformView {
 
         if let urlString = arguments["url"] {
             let url = URL(string: urlString as! String)!
-            playerItem = AVPlayerItem(url: url)
+
+            if let headers = arguments["headers"] as? [String: String], !headers.isEmpty {
+                let assetOptions: [String: Any] = ["AVURLAssetHTTPHeaderFieldsKey": headers]
+                let asset = AVURLAsset(url: url, options: assetOptions)
+                playerItem = AVPlayerItem(asset: asset)
+            } else {
+                playerItem = AVPlayerItem(url: url)
+            }
         } else if let filePath = arguments["file"] {
             let fileUrl = URL(fileURLWithPath: filePath as! String)
             let item = AVPlayerItem(url: fileUrl)

@@ -47,6 +47,17 @@ child: FlutterAVPlayerView(
             ),
 ```
 
+**To play a network video that requires custom HTTP headers (e.g. an `Authorization` token):**
+
+```
+FlutterAVPlayerView(
+              urlString: 'https://example.com/your-video.mp4',
+              headers: {
+                'Authorization': 'Bearer your-token',
+              },
+            ),
+```
+
 ## Screenshots
 
 Video iPhone | Airplay iPhone | Video iPad | Airplay iPad

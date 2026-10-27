@@ -1,3 +1,7 @@
+## 2.3.0
+
+- Fixed issue#33 - `FlutterAVPlayerView` now accepts an optional `headers` map so network videos that require custom HTTP headers (e.g. an `Authorization` bearer token) can be played and AirPlayed.
+
 ## 2.2.0
 
 - Added macOS support for `AirPlayRoutePickerView` and `AirPlayIconButton`, backed by the native AppKit `AVRoutePickerView`. The widgets now render the native picker on both iOS and macOS.

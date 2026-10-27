@@ -12,6 +12,7 @@ class FlutterAVPlayerView extends StatelessWidget {
     this.filePath,
     this.assetPath,
     this.autoLoop = false,
+    this.headers,
   }) : assert(urlString != null || filePath != null || assetPath != null);
 
   /// URL string for the video file, if the file is to be played from the network.
@@ -26,6 +27,10 @@ class FlutterAVPlayerView extends StatelessWidget {
   /// Boolean to enable/disable autoLoop
   final bool autoLoop;
 
+  /// Optional HTTP headers (e.g. `Authorization`) to send when requesting
+  /// [urlString]. Only applicable when playing a network video.
+  final Map<String, String>? headers;
+
   /// This function packs the available parameters to be sent to native code.
   /// It will check for the URL first, if it is available, then it will be used,
   /// otherwise filePath will be used.
@@ -38,6 +43,9 @@ class FlutterAVPlayerView extends StatelessWidget {
 
     if (urlString != null) {
       params['url'] = urlString;
+      if (headers != null && headers!.isNotEmpty) {
+        params['headers'] = headers;
+      }
     } else if (filePath != null) {
       params['file'] = filePath;
     } else if (assetPath != null) {
