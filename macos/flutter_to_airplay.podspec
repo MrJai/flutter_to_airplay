@@ -5,13 +5,13 @@
 Pod::Spec.new do |s|
   s.name             = 'flutter_to_airplay'
   s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
+  s.summary          = 'Flutter plugin to play video via native AVPlayer and AirPlay it to Apple devices.'
   s.description      = <<-DESC
-A new flutter plugin project.
+Flutter plugin that offers two widgets, one to play a video for a given url or file path using native AVPlayer and a second with an option to AirPlay it on available Apple devices.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/MrJai/flutter_to_airplay'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Junaid Rehmat' => 'junaid.rehmat.rana@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'FlutterMacOS'

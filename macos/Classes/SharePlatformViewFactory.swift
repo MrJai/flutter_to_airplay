@@ -17,8 +17,12 @@ class SharePlatformViewFactory: NSObject, FlutterPlatformViewFactory {
 
     func create(withViewIdentifier viewId: Int64, arguments args: Any?) -> NSView {
         let arguments = args as? Dictionary<String, Any> ?? [:]
-        if let viewClass = arguments["class"] as? String, viewClass == "AirplayRoutePicker" {
-            return FlutterRoutePickerView(messenger: _messenger, viewId: viewId, arguments: arguments)
+        if let viewClass = arguments["class"] as? String {
+            if viewClass == "AirplayRoutePicker" {
+                return FlutterRoutePickerView(messenger: _messenger, viewId: viewId, arguments: arguments)
+            } else if viewClass == "FlutterAVPlayerView" {
+                return FlutterAVPlayer(messenger: _messenger, viewId: viewId, arguments: arguments)
+            }
         }
 
         return NSView()

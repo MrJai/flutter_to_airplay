@@ -1,3 +1,7 @@
+## 2.4.0
+
+- Added macOS support for `FlutterAVPlayerView`, backed by the native AppKit `AVPlayerView`. Video playback from a URL, file, or asset (including custom HTTP headers and `autoLoop`) now works on both iOS and macOS, completing macOS support alongside the AirPlay picker (issue#31).
+
 ## 2.3.0
 
 - Fixed issue#33 - `FlutterAVPlayerView` now accepts an optional `headers` map so network videos that require custom HTTP headers (e.g. an `Authorization` bearer token) can be played and AirPlayed.
